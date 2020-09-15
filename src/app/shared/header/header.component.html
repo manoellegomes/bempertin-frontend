@@ -85,12 +85,12 @@
             <strong>Repositório</strong>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="hasPermission()">
           <a class="nav-link" [routerLink]="['/places']">
             <strong>Locais</strong>
           </a>
         </li>
-        <li class="dropdown nav-item" dropdown>
+        <li class="dropdown nav-item" dropdown *ngIf="hasPermission()">
           <a
             class="dropdown-toggle nav-link dropdown-toggle"
             data-toggle="dropdown"
