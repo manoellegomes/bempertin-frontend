@@ -46,9 +46,6 @@
         }
       }
     }
-    .img-girl-pin {
-      display: none;
-    }
   }
 }
 
@@ -65,17 +62,7 @@
   .page-header {
     .container {
       padding-top: 16vh;
-    }
-  }
-}
-
-@media (min-width: 1024px) {
-  .page-header {
-    .container {
-      .img-girl-pin {
-        display: block;
-        margin-right: 5rem;
-      }
+      margin-bottom: 25px;
     }
   }
 }
