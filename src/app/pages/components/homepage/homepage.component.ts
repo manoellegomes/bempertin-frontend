@@ -8,7 +8,7 @@ import { TextsPortuguese } from "../../../shared/texts/texts-portuguese";
 })
 export class HomepageComponent implements OnInit, OnDestroy {
   isCollapsed = true;
-  constructor(private texts: TextsPortuguese) {}
+  constructor(public texts: TextsPortuguese) {}
 
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];

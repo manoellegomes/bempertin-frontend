@@ -7,8 +7,6 @@ import { HttpClient} from "@angular/common/http";
 })
 export class PlacesService {
   private keyGooglePlaces = environment.keyGooglePlaces;
-  private urlPlacesNearby = environment.urlPlacesNearby;
-  private urlPlacesDetails = environment.urlPlacesDetails;
   private urlPlaces = environment.urlPlaces;
   private proxyCors = environment.proxyCors
 

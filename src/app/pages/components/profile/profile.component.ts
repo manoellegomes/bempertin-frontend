@@ -19,6 +19,12 @@ export class ProfileComponent implements OnInit, OnDestroy {
   typeAlert: string = "";
   avatar: string = "";
   editable: boolean = false;
+  focus1;
+  focus2;
+  focus3;
+  focus4;
+  focus5;
+  focus6;
 
   constructor(
     private userService: UserService,
