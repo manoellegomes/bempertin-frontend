@@ -94,7 +94,6 @@ export class ModalLoginRegisterComponent implements OnInit {
   verifyAuthorization(res) {
     if (res["token"]) {
       this.modalRef.hide();
-      console.log('EITA', this.formUser.controls.remember.value);
 
       let typeStorage = this.formUser.controls.remember.value ? localStorage : sessionStorage;
 

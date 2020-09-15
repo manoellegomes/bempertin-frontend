@@ -34,7 +34,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let item of placesOpenNow" (click)="getDetails(item)" >
+                        <tr *ngFor="let item of placesOpenNow" (click)="getDetails(item)" tooltip="Clique para ver mais detalhes abaixo">
                           <td>{{item.name}}</td>
                           <td>{{item.types[0]}}</td>
                           <td>{{item.vicinity}}</td>
@@ -59,7 +59,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let item of placesClosed" (click)="getDetails(item)" [ngClass]="colorRowPlaces" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)">
+                        <tr *ngFor="let item of placesClosed" (click)="getDetails(item)" [ngClass]="colorRowPlaces" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)"  tooltip="Clique para ver mais detalhes abaixo">
                           <td>{{item.name}}</td>
                           <td>{{item.types[0]}}</td>
                           <td>{{item.vicinity}}</td>
@@ -84,7 +84,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let item of placesStatusUndefined" (click)="getDetails(item)">
+                        <tr *ngFor="let item of placesStatusUndefined" (click)="getDetails(item)" tooltip="Clique para ver mais detalhes abaixo">
                           <td>{{item.name}}</td>
                           <td>{{item.types[0]}}</td>
                           <td>{{item.vicinity}}</td>
@@ -137,7 +137,7 @@
                 />
 
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Big City Life, United States</h5>
+                  <h5>Mock</h5>
                 </div>
               </slide>
               <slide>
@@ -148,7 +148,7 @@
                 />
 
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Somewhere Beyond, United States</h5>
+                  <h5>Mock</h5>
                 </div>
               </slide>
               <slide>
@@ -159,7 +159,7 @@
                 />
 
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Stocks, United States</h5>
+                  <h5></h5>
                 </div>
               </slide>
             </carousel>
