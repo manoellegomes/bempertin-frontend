@@ -1,0 +1,18 @@
+.navbar {
+  .tim-icons {
+    color: #000000;
+  }
+  .icon-user-run {
+    font-size: 24px;
+  }
+}
+
+.navbar.navbar-transparent.colorful {
+  background-color: #e14eca !important;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar.navbar-transparent {
+    background-color: #e14eca !important;
+  }
+}

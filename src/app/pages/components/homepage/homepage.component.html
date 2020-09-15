@@ -1,0 +1,61 @@
+<app-header [backgroundDesktop]="false"></app-header>
+<div class="wrapper">
+  <div class="page-header">
+    <img class="path" src="assets/img/blob.png" />
+
+    <img class="path2" src="assets/img/path2.png" />
+
+    <img class="shapes triangle" src="assets/img/triunghiuri.png" />
+
+    <img class="shapes wave" src="assets/img/waves.png" />
+
+    <img class="shapes squares" src="assets/img/patrat.png" />
+
+    <img class="shapes circle" src="assets/img/cercuri.png" />
+
+    <div class="content-center">
+      <div
+        class="row row-grid justify-content-between align-items-center text-left"
+      >
+        <div class="col-lg-6 col-md-6">
+          <h1 class="text-white title">B E M P E R T I N<br /></h1>
+          <p class="text-white description mb-3">
+            Uma aplicação web (front-end) que mostra os locais mais próximos de
+            você em formato de mapa e lista.
+          </p>
+          <div class="btn-wrapper mb-3 author">
+            <p class="category text-success d-inline mr-1">
+              Desenvolvido por Elaine Manoelle
+            </p>
+          </div>
+          <div class="btn-wrapper">
+            <div class="button-container">
+              <app-modal-login-register
+                class="mr-2 btn-login-register"
+                labelButton="Tenho Conta"
+                classButton="btn-primary"
+                title="Efetuar Login"
+                type="login"
+                [texts]="texts"
+              ></app-modal-login-register>
+              <app-modal-login-register
+                labelButton="Criar Conta"
+                classButton="btn-info"
+                title="Nova Conta"
+                type="register"
+                [texts]="texts"
+              ></app-modal-login-register>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-5">
+          <img
+            alt="Circle image"
+            class="img-fluid girl-map"
+            src="assets/img/woman-map.jpg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,262 @@
+<button
+  type="button"
+  class="btn"
+  [ngClass]="classButton"
+  (click)="openModal(template)"
+>
+  {{ labelButton }}
+</button>
+
+<ng-template #template class="my-modal">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ title }}</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="errorMsg">
+      <alert
+        class="alert-with-icon"
+        [type]="'warning alert-with-icon'"
+        [dismissible]="true"
+      >
+        <span class="tim-icons icon-bell-55" data-notify="icon"> </span>
+        <span> <b>Oops!</b> {{ errorMsg }} </span>
+      </alert>
+    </div>
+    <form role="form" [formGroup]="formUser" (ngSubmit)="onSubmit()">
+      <div class="form-group" *ngIf="type == 'register'">
+        <div
+          class="input-group input-group-alternative"
+          [ngClass]="{ 'input-group-focus': focus4 === true }"
+        >
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="tim-icons icon-single-02"> </i>
+            </span>
+          </div>
+          <input
+            name="first_name"
+            formControlName="first_name"
+            class="form-control"
+            placeholder="Nome"
+            type="text"
+            (focus)="focus4 = true"
+            (blur)="focus4 = false"
+          />
+        </div>
+        <div
+          *ngIf="
+            formUser.controls.first_name.invalid &&
+            (formUser.controls.first_name.dirty ||
+              formUser.controls.first_name.touched)
+          "
+        >
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.first_name.errors.required"
+            >{{ texts.messages.requiredErrorMsg }}</span
+          >
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.first_name.errors.minlength"
+            >{{ texts.messages.minLenghtText }}</span
+          >
+        </div>
+      </div>
+      <div class="form-group" *ngIf="type == 'register'">
+        <div
+          class="input-group input-group-alternative"
+          [ngClass]="{ 'input-group-focus': focus5 === true }"
+        >
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="tim-icons icon-single-02"> </i>
+            </span>
+          </div>
+          <input
+            name="last_name"
+            formControlName="last_name"
+            class="form-control"
+            placeholder="Sobrenome"
+            type="text"
+            (focus)="focus5 = true"
+            (blur)="focus5 = false"
+          />
+        </div>
+        <div
+          *ngIf="
+            formUser.controls.last_name.invalid &&
+            (formUser.controls.last_name.dirty ||
+              formUser.controls.last_name.touched)
+          "
+        >
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.last_name.errors.required"
+            >{{ texts.messages.requiredErrorMsg }}</span
+          >
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.last_name.errors.minlength"
+            >{{ texts.messages.minLenghtText }}</span
+          >
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <div
+          class="input-group input-group-alternative"
+          [ngClass]="{ 'input-group-focus': focus1 === true }"
+        >
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="tim-icons icon-email-85"> </i>
+            </span>
+          </div>
+          <input
+            name="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Email"
+            type="email"
+            (focus)="focus1 = true"
+            (blur)="focus1 = false"
+          />
+        </div>
+        <div
+          *ngIf="
+            formUser.controls.email.invalid &&
+            (formUser.controls.email.dirty || formUser.controls.email.touched)
+          "
+        >
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.email.errors.required"
+          >
+            {{ texts.messages.requiredErrorMsg }}
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.email.errors.email"
+            >{{ texts.messages.formatWrong }}</span
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <div
+          class="input-group input-group-alternative"
+          [ngClass]="{ 'input-group-focus': focus2 === true }"
+        >
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="tim-icons icon-key-25"> </i>
+            </span>
+          </div>
+          <input
+            name="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Senha"
+            type="password"
+            (focus)="focus2 = true"
+            (blur)="focus2 = false"
+          />
+        </div>
+        <div
+          *ngIf="
+            formUser.controls.password.invalid &&
+            (formUser.controls.password.dirty ||
+              formUser.controls.password.touched)
+          "
+        >
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.password.errors.required"
+          >
+            {{ texts.messages.requiredErrorMsg }}
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.password.errors.minlength"
+          >
+            {{ texts.messages.minLenghtPass }}
+          </span>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="type == 'register'">
+        <div
+          class="input-group input-group-alternative"
+          [ngClass]="{ 'input-group-focus': focus3 === true }"
+        >
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="tim-icons icon-key-25"> </i>
+            </span>
+          </div>
+          <input
+            name="password_confirmation"
+            formControlName="password_confirmation"
+            class="form-control"
+            placeholder="Confirmaçâo de Senha"
+            type="password"
+            (focus)="focus3 = true"
+            (blur)="focus3 = false"
+          />
+        </div>
+        <div
+          *ngIf="
+            formUser.controls.password_confirmation.invalid &&
+            (formUser.controls.password_confirmation.dirty ||
+              formUser.controls.password_confirmation.touched)
+          "
+        >
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.password_confirmation.errors.required"
+          >
+            {{ texts.messages.requiredErrorMsg }}
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="formUser.controls.password_confirmation.errors.minlength"
+            >{{ texts.messages.minLenghtPass }}</span
+          >
+        </div>
+        <span
+          class="text-danger"
+          *ngIf="formUser.errors && formUser.errors.passwordNotMatch"
+          >{{ texts.messages.passwordNotMatch }}</span
+        >
+      </div>
+      <div class="form-check mt-3">
+        <label class="form-check-label">
+          <input
+            checked="checked"
+            class="form-check-input"
+            type="checkbox"
+            name="remember"
+            formControlName="remember"
+          />
+
+          <span class="form-check-sign"> </span> Lembrar de mim!
+        </label>
+      </div>
+      <div class="text-center">
+        <button
+          class="btn btn-primary my-4"
+          type="submit"
+          [disabled]="formUser.invalid"
+        >
+          <span *ngIf="type == 'login'">Entrar</span>
+          <span *ngIf="type == 'register'">Cadastrar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

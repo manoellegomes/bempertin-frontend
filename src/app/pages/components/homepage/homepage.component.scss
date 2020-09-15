@@ -1,0 +1,23 @@
+@media screen and (max-width: 768px) {
+  .content-center {
+    top: 48%;
+    .girl-map {
+      margin-top: 8px !important;
+    }
+    .author {
+      display: none !important;
+    }
+    button {
+      padding: 11px 20px !important;
+    }
+    .title {
+      margin-bottom: 15px !important;
+    }
+    .description {
+      margin-bottom: 0.7rem !important;
+    }
+    .btn-login-register {
+      margin-right: 0px !important;
+    }
+  }
+}

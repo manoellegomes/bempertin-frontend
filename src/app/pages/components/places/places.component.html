@@ -1,0 +1,238 @@
+<app-header [backgroundDesktop]="true"></app-header>
+<div class="wrapper">
+  <div class="page-header">
+    <img class="dots" src="assets/img/dots.png" />
+
+    <img class="path" src="assets/img/path4.png" />
+
+    <div class="container align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-7 ml-auto mr-auto">
+          <div class="card card-coin card-plain">
+            <div class="card-header">
+              <img
+                class="img-center img-fluid rounded-circle shadow-lg"
+                [src]="avatar"
+              />
+              <div class="row justify-content-center">
+                <h4 class="title mr-2 mt-3">Você está em: </h4> <span class="your-local"> {{yourLocal}}</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <tabset
+                class="nav-tabs-danger justify-content-center tab-subcategories"
+              >
+                <tab heading="Abertos">
+                  <div class="table-responsive">
+                    <table *ngIf="placesOpenNow.length" class="table tablesorter" id="plain-table">
+                      <thead class="text-danger">
+                        <tr>
+                          <th class="header">NOME</th>
+                          <th class="header">TIPO</th>
+                          <th class="header">ENDEREÇO</th>
+                          <th class="header">NOTA</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of placesOpenNow" (click)="getDetails(item)" >
+                          <td>{{item.name}}</td>
+                          <td>{{item.types[0]}}</td>
+                          <td>{{item.vicinity}}</td>
+                          <td>{{item.rating}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <span *ngIf="!placesOpenNow.length" class="d-flex justify-content-center">
+                      Nenhum local encontrado com esse status
+                    </span>
+                  </div>
+                </tab>
+                <tab heading="Fechados">
+                  <div class="table-responsive">
+                    <table *ngIf="placesClosed.length" class="table tablesorter" id="plain-table">
+                      <thead class="text-danger">
+                        <tr>
+                          <th class="header">NOME</th>
+                          <th class="header">TIPO</th>
+                          <th class="header">ENDEREÇO</th>
+                          <th class="header">NOTA</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of placesClosed" (click)="getDetails(item)" [ngClass]="colorRowPlaces" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)">
+                          <td>{{item.name}}</td>
+                          <td>{{item.types[0]}}</td>
+                          <td>{{item.vicinity}}</td>
+                          <td>{{item.rating}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <span *ngIf="!placesClosed.length" class="d-flex justify-content-center">
+                      Nenhum local encontrado com esse status
+                    </span>
+                  </div>
+                </tab>
+                <tab heading="Status Indefinido">
+                  <div class="table-responsive">
+                    <table *ngIf="placesStatusUndefined.length" class="table tablesorter" id="plain-table">
+                      <thead class="text-danger">
+                        <tr>
+                          <th class="header">NOME</th>
+                          <th class="header">TIPO</th>
+                          <th class="header">ENDEREÇO</th>
+                          <th class="header">NOTA</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of placesStatusUndefined" (click)="getDetails(item)">
+                          <td>{{item.name}}</td>
+                          <td>{{item.types[0]}}</td>
+                          <td>{{item.vicinity}}</td>
+                          <td>{{item.rating}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <span *ngIf="!placesStatusUndefined.length" class="d-flex justify-content-center">
+                      Nenhum local encontrado com esse status
+                    </span>
+                  </div>
+                </tab>
+              </tabset>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5 ml-auto mr-auto">
+          <google-map
+            height="500px"
+            width="100%"
+            [zoom]="zoom"
+            [center]="center"
+            [options]="options"
+          >
+            <map-marker
+              *ngFor="let marker of markers"
+              [position]="marker.position"
+              [label]="marker.label"
+              [title]="marker.title"
+              [options]="marker.options"
+              (mapClick)="openInfo(markerElem, marker.info)"
+            >
+            </map-marker>
+        </google-map>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section place-details" *ngIf="showDetails">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-md-6">
+          <div class="row justify-content-between align-items-center">
+            <carousel [showIndicators]="true">
+              <slide>
+                <img
+                  alt="First slide"
+                  class="d-block"
+                  src="assets/img/denys.jpg"
+                />
+
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Big City Life, United States</h5>
+                </div>
+              </slide>
+              <slide>
+                <img
+                  alt="Second slide"
+                  class="d-block"
+                  src="assets/img/fabien-bazanegue.jpg"
+                />
+
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Somewhere Beyond, United States</h5>
+                </div>
+              </slide>
+              <slide>
+                <img
+                  alt="Third slide"
+                  class="d-block"
+                  src="assets/img/mark-finn.jpg"
+                />
+
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Stocks, United States</h5>
+                </div>
+              </slide>
+            </carousel>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="row align-items-center">
+            <h3 class="profile-title text-left mr-3 mb-0">Detalhes: </h3>
+            <h4 class="mb-0">{{placeDetails.name}}</h4>
+          </div>
+          <h5 class="text-on-back">{{placeDetails.rating}}</h5>
+          <span *ngIf="showReviews" class="badge badge-neutral">O que estão falando a respeito: </span>
+          <p *ngIf="showReviews" class="profile-description text-left">
+            "{{placeDetails.reviews[0]['text']}}"
+          </p>
+          <div class="btn-wrapper pt-3">
+            <button
+              class="btn btn-simple btn-danger mr-1"
+              type="button"
+              (click)="favorites(placeDetails.place_id, placeDetails.name)"
+            >
+              <i class="tim-icons icon-book-bookmark"> </i> {{labelBtnFavorite}}
+            </button>
+            <button 
+            class="btn btn-simple btn-info"
+              type="button"
+              (click)="rates(placeDetails.place_id, placeDetails.name)"
+            >
+              <i class="tim-icons icon-bulb-63"> </i> {{labelBtnRate}}
+            </button>
+          </div>
+          <form [formGroup]="formRate" (ngSubmit)="onSubmitRate(placeDetails.place_id, placeDetails.name)">
+            <div class="rate-comment row mt-2">
+                <div class="col-3">
+                  <div class="form-group">
+                    <label> Nota </label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder="Nota"
+                      formControlName="rate_number"
+                      [disabled]="!showRateSection"
+                    />
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div class="form-group">
+                    <label> Comentário </label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder="Comentário"
+                      formControlName="comment"
+                      [disabled]="!showRateSection"
+                    />
+                  </div>
+                </div>
+              
+            </div>
+            <div *ngIf="showRateSection" class="row">
+              <div class="col-12">
+                <button
+                class="btn btn-primary my-0 btn-sm"
+                type="submit"
+                [disabled]="formRate.invalid"
+              >
+                <span>Salvar</span>
+              </button>
+              </div>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

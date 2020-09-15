@@ -1,0 +1,118 @@
+<nav
+  class="navbar navbar-expand-lg fixed-top navbar-transparent"
+  [ngClass]="{ colorful: backgroundDesktop === true }"
+  color-on-scroll="100"
+  id="navbar-top"
+>
+  <div class="container">
+    <div class="navbar-translate">
+      <a
+        class="navbar-brand"
+        [routerLink]="['/homepage']"
+        placement="bottom"
+        tooltip="Desenvolvido por Elaine Manoelle"
+      >
+        <span> B E M P E R T I N• </span> Frontend Challenge
+      </a>
+      <button
+        aria-controls="navigation-index"
+        aria-label="Toggle navigation"
+        class="navbar-toggler navbar-toggler"
+        [attr.aria-expanded]="!isCollapsed"
+        (click)="isCollapsed = !isCollapsed"
+        id="navigation"
+        type="button"
+      >
+        <span class="navbar-toggler-bar bar1"> </span>
+        <span class="navbar-toggler-bar bar2"> </span>
+        <span class="navbar-toggler-bar bar3"> </span>
+      </button>
+    </div>
+    <div
+      class="navbar-collapse justify-content-end"
+      [collapse]="isCollapsed"
+      id="navigation"
+    >
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand"><a> Elaine• </a></div>
+          <div class="col-6 collapse-close text-right">
+            <button
+              aria-controls="navigation-index"
+              aria-label="Toggle navigation"
+              class="navbar-toggler"
+              [attr.aria-expanded]="!isCollapsed"
+              (click)="isCollapsed = !isCollapsed"
+              id="navigation"
+              type="button"
+            >
+              <i class="tim-icons icon-simple-remove"> </i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            href="https://github.com/elainemanoelle"
+            placement="bottom"
+            target="_blank"
+            tooltip="Me acompanhe no Github"
+          >
+            <i class="fab fa-github"></i>
+            <p class="d-lg-none d-xl-none">Github</p>
+          </a>
+        </li>
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            href="https://www.linkedin.com/in/elainemanoelle"
+            placement="bottom"
+            target="_blank"
+            tooltip="Me acompanhe no Linkedin"
+          >
+            <i class="fab fa-linkedin"> </i>
+            <p class="d-lg-none d-xl-none">Linkedin</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="https://github.com/elainemanoelle"
+            target="_blank"
+          >
+            <strong>Repositório</strong>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/places']">
+            <strong>Locais</strong>
+          </a>
+        </li>
+        <li class="dropdown nav-item" dropdown>
+          <a
+            class="dropdown-toggle nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            dropdownToggle
+            href="javascript:void(0)"
+          >
+            <i class="fa fa-cogs d-lg-none d-xl-none"> </i> Minha Conta
+          </a>
+          <div class="dropdown-menu dropdown-with-icons" *dropdownMenu>
+            <a class="dropdown-item" [routerLink]="['/myprofile']">
+              <i class="tim-icons icon-single-02"> </i> Perfil
+            </a>
+            <a
+              class="dropdown-item"
+              (click)="logout()"
+              href="javascript:void(0)"
+            >
+              <i class="tim-icons icon-user-run"> </i> Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

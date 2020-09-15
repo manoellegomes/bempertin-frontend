@@ -1,0 +1,61 @@
+.page-header {
+  .container {
+    padding-top: 27vh;
+    .card {
+      .card-header {
+        margin-bottom: 0px;
+        .title {
+          margin-bottom: 0px;
+          margin-top: 15px;
+        }
+        .edit {
+          margin: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .card-body {
+        .input-group-text {
+          background-color: #1f2251 !important;
+        }
+
+        .form-check-label {
+          color: #fff !important;
+        }
+
+        .input-group-prepend {
+          .input-group-text {
+            padding: 10px;
+          }
+        }
+
+        input {
+          color: #fff !important;
+        }
+      }
+    }
+    .img-girl-pin {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    .container {
+      padding-top: 16vh;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-header {
+    .container {
+      .img-girl-pin {
+        display: block;
+        margin-right: 5rem;
+      }
+    }
+  }
+}
