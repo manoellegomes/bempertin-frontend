@@ -31,6 +31,8 @@ export class PlacesComponent implements OnInit, OnDestroy {
   placesClosed = [];
   showDetails = false;
   showReviews = false;
+  currentRate: number;
+  currentComment: string = '';
   placeDetails;
   markers = [];
   labelBtnFavorite: string = '';
@@ -198,9 +200,20 @@ export class PlacesComponent implements OnInit, OnDestroy {
       
       this.labelBtnRate = (exists) ? 'Remover Avaliação' : 'Avaliar';
       this.typeActionRate = (exists) ? 'remove' : 'add';
-      this.showRateSection = (exists) ? false : true;
 
-      (exists) ? this.formRate.disable() : this.formRate.enable();;
+      if (exists) {
+        this.formRate.disable();
+        this.showRateSection = true;
+
+        this.currentComment = exists.comment;
+        this.currentRate = exists.rate_number;
+  
+        this.formRate.controls.rate_number.setValue(this.currentRate);
+        this.formRate.controls.comment.setValue(this.currentComment);
+      } else {
+        this.formRate.enable();
+      }
+
     } else {
       this.labelBtnRate = 'Avaliar';
       this.typeActionRate = 'add';

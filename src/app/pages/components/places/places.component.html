@@ -192,7 +192,7 @@
             </button>
           </div>
           <form [formGroup]="formRate" (ngSubmit)="onSubmitRate(placeDetails.place_id, placeDetails.name)">
-            <div class="rate-comment row mt-2">
+            <div *ngIf="currentComment || showRateSection" class="rate-comment row mt-2">
                 <div class="col-3">
                   <div class="form-group">
                     <label> Nota </label>
@@ -219,7 +219,7 @@
                 </div>
               
             </div>
-            <div *ngIf="showRateSection" class="row">
+            <div *ngIf="showRateSection  && typeActionRate === 'add'" class="row">
               <div class="col-12">
                 <button
                 class="btn btn-primary my-0 btn-sm"
