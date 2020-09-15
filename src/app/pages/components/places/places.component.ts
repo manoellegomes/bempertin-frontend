@@ -212,6 +212,8 @@ export class PlacesComponent implements OnInit, OnDestroy {
         this.formRate.controls.comment.setValue(this.currentComment);
       } else {
         this.formRate.enable();
+        this.formRate.controls.rate_number.setValue("");
+        this.formRate.controls.comment.setValue(0);
       }
 
     } else {

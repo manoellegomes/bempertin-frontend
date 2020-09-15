@@ -1,4 +1,4 @@
 export class RateFields {
-  rate_number: number;
-  comment: string;
+  rate_number: number = 0;
+  comment: string = "";
 }
