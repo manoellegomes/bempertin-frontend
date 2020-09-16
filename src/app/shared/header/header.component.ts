@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit {
   }
 
   get hasPermission() {
-    console.log('URL', this.router.url);
     return (this.router.url.includes('homepage') && (!sessionStorage['token'] || !localStorage['token'])) ? false : true;
   }
 }

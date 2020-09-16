@@ -16,15 +16,15 @@ export class UserService {
     return this.httpClient.post(`${this.api}/register`, data);
   }
 
-  postLogin(data) {
+  postLogin(data): Observable<any> {
     return this.httpClient.post(`${this.api}/login`, data);
   }
 
-  updateProfile(data) {
+  updateProfile(data): Observable<any> {
     return this.httpClient.put(`${this.api}/users/${this.idUser}`, data);
   }
 
-  getProfile(data) {
+  getProfile(data): Observable<any> {
     return this.httpClient.get(`${this.api}/users/${this.idUser}`);
   }
 }

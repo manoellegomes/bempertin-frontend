@@ -6,12 +6,13 @@ import { Routes, RouterModule } from "@angular/router";
 import { ProfileComponent } from "./pages/components/profile/profile.component";
 import { PlacesComponent } from "./pages/components/places/places.component";
 import { HomepageComponent } from "./pages/components/homepage/homepage.component";
+import { AuthGuard } from './pages/guards/auth-guard.service';
 
 const routes: Routes = [
   { path: "", redirectTo: "homepage", pathMatch: "full" },
   { path: "homepage", component: HomepageComponent },
-  { path: "places", component: PlacesComponent },
-  { path: "myprofile", component: ProfileComponent }
+  { path: "places", component: PlacesComponent, canActivate: [AuthGuard] },
+  { path: "myprofile", component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ export class Utils {
   minLengthText: number = 3;
   alertTypeSuccess = "success alert-with-icon";
   alertTypeError = "warning alert-with-icon";
+  urlImgDefault = "https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg";
 
   password(formUser: FormGroup) {
     return formUser.get("password").value ===

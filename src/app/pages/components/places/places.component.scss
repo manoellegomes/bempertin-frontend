@@ -22,6 +22,9 @@
         }
       }
       .card-body {
+        .color-row-places {
+          cursor: pointer;
+        }
         .input-group-text {
           background-color: #1f2251 !important;
         }
@@ -40,9 +43,6 @@
         }
         .table-responsive {
           height: 285px;
-          .color-row-places {
-            background-color: 'yellow'!important;
-          }
         }
       }
     }

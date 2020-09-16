@@ -34,7 +34,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let item of placesOpenNow" (click)="getDetails(item)" tooltip="Clique para ver mais detalhes abaixo">
+                        <tr *ngFor="let item of placesOpenNow" (click)="getDetails(item)" tooltip="Clique para ver mais detalhes abaixo" [ngClass]="colorRowPlaces" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)">
                           <td>{{item.name}}</td>
                           <td>{{item.types[0]}}</td>
                           <td>{{item.vicinity}}</td>
@@ -59,7 +59,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let item of placesClosed" (click)="getDetails(item)" [ngClass]="colorRowPlaces" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)"  tooltip="Clique para ver mais detalhes abaixo">
+                        <tr *ngFor="let item of placesClosed" (click)="getDetails(item)" tooltip="Clique para ver mais detalhes abaixo" [ngClass]="colorRowPlaces" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)">
                           <td>{{item.name}}</td>
                           <td>{{item.types[0]}}</td>
                           <td>{{item.vicinity}}</td>
@@ -84,7 +84,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let item of placesStatusUndefined" (click)="getDetails(item)" tooltip="Clique para ver mais detalhes abaixo">
+                        <tr *ngFor="let item of placesStatusUndefined" (click)="getDetails(item)" tooltip="Clique para ver mais detalhes abaixo" [ngClass]="colorRowPlaces" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)">
                           <td>{{item.name}}</td>
                           <td>{{item.types[0]}}</td>
                           <td>{{item.vicinity}}</td>

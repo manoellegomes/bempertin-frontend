@@ -22,7 +22,7 @@ export class PlacesComponent implements OnInit, OnDestroy {
   typeAlert: string = "";
   yourLocal: string = "";
   colorRowPlaces:string = "";
-  avatar: string = sessionStorage['avatar'] || "https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg";
+  avatar: string = sessionStorage['avatar'] || this.utils.urlImgDefault;
   latitude: number;
   longitude: number;
   zoom: number = 15;
@@ -212,8 +212,8 @@ export class PlacesComponent implements OnInit, OnDestroy {
         this.formRate.controls.comment.setValue(this.currentComment);
       } else {
         this.formRate.enable();
-        this.formRate.controls.rate_number.setValue("");
-        this.formRate.controls.comment.setValue(0);
+        this.formRate.controls.rate_number.setValue(0);
+        this.formRate.controls.comment.setValue("");
       }
 
     } else {
@@ -223,7 +223,7 @@ export class PlacesComponent implements OnInit, OnDestroy {
   }
 
   changeStyle($event){
-    this.colorRowPlaces = $event.type == 'mouseover' ? "color-row-places" : "color-row-places";
+    this.colorRowPlaces = $event.type == 'mouseover' ? "color-row-places" : "";
   }
 
   favorites(place_id, name) {
@@ -297,7 +297,6 @@ export class PlacesComponent implements OnInit, OnDestroy {
     localStorage['rates'] = JSON.stringify(this.addRate(place_id, name));
 
     this.verifyRate({place_id, name});
-    
   }
   
 }
